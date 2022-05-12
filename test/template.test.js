@@ -1,7 +1,10 @@
-const templateFunction = require('../src/template');
+const isTheCellAlive = require('../src/template');
 
-describe('TemplateFunction should return half of the provided', () => {
-    it('2 -> 1 ', () => {
-        expect(templateFunction(2)).toEqual(1);        
+describe('When we play the game of life, we want to be able to determine whether a cell is dead or alive', () => {
+    it('▓ -> not alive', () => {
+        expect(isTheCellAlive(0)).toEqual(false);        
+    });
+    it('░ -> alive', () => {
+        expect(isTheCellAlive(1)).toEqual(true);        
     });
 });

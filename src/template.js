@@ -1,5 +1,5 @@
-function templateFunction(x) {
-    return x / 2
+function isTheCellAlive(cell) {
+    return cell == 1 
 }
 
-module.exports = templateFunction
+module.exports = isTheCellAlive
