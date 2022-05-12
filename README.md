@@ -60,6 +60,13 @@ Atomic behaviors:
 ✔ 1 = alive
 
 - Determine the amount of alive neighbours
+Universes of 1 row:
+[0,0,0] first cell -> 0 alive neighbours
+[0,1,0] first cell -> 1 alive neighbour
+[0,1,1] second cell -> 1 alive neighbour
+[1,1,1] second cell -> 2 alive neighbours
+
+
 - Determine underpopulation -> when fewer than two live neighbours
 - Determine reproduction -> when a dead cell has exactly 3 neighbours
 - Determine overcrowding -> when a live cell has more than three live neighbours 
