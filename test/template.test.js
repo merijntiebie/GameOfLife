@@ -13,19 +13,27 @@ describe('We want to be able to determine the amount of alive neighbours for eac
     describe('When our universe consists of 1 row', () => {
         
         it('▓▓▓ first cell has no alive neighbours', () => {
-            expect(determineTheAmountOfAliveNeighbours([0,0,0],0)).toEqual(0);
+            expect(determineTheAmountOfAliveNeighbours([[0,0,0]],0,0)).toEqual(0);
         });
         it('▓░▓ first cell has one alive neighbour', () => {
-            expect(determineTheAmountOfAliveNeighbours([0, 1, 0],0)).toEqual(1);
+            expect(determineTheAmountOfAliveNeighbours([[0, 1, 0]],0,0)).toEqual(1);
         });
         it('▓░░ second cell has one alive neighbour', () => {
-            expect(determineTheAmountOfAliveNeighbours([0, 1, 1],1)).toEqual(1);
+            expect(determineTheAmountOfAliveNeighbours([[0, 1, 1]],0,1)).toEqual(1);
         });
         it('░░░ second cell has two alive neighbours', () => {
-            expect(determineTheAmountOfAliveNeighbours([1, 1, 1],1)).toEqual(2);
+            expect(determineTheAmountOfAliveNeighbours([[1, 1, 1]],0,1)).toEqual(2);
         });
     });
-    describe('Name of the group', () => {
-        
+    describe('When our universe consists of 2 rows', () => {
+        it('░▓▓, ▓▓▓ first cell has no alive neighbours ', () => {
+            expect(determineTheAmountOfAliveNeighbours([[1,0,0],[0,0,0]],0,0)).toEqual(0)
+        });
+        it('░░▓, ▓▓▓ first cell has one alive neighbours ', () => {
+            expect(determineTheAmountOfAliveNeighbours([[1, 1, 0], [0, 0, 0]],0,0)).toEqual(1)
+        });
+        it('░░▓, ░▓▓ first cell has 2 alive neighbours ', () => {
+            expect(determineTheAmountOfAliveNeighbours([[1, 1, 0], [1, 0, 0]], 0, 0)).toEqual(2)
+        });
     });
 });
