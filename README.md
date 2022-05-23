@@ -67,20 +67,20 @@ Universes of 1 row:
 ✔[1,1,1] second cell -> 2 alive neighbours
 
 Universes of 2 rows
-[1,0,0] -> first cell, first row -> 0 alive neighbours
-[0,0,0]
+✔[1,0,0] -> first cell, first row -> 0 alive neighbours
+  [0,0,0]
 
-[1,1,0] -> first cell, first row -> 1 alive neighbours
-[0,0,0]
+✔[1,1,0] -> first cell, first row -> 1 alive neighbours
+  [0,0,0]
 
-[1,1,0] -> first cell, first row -> 2 alive neighbours
-[1,0,0]
+✔[1,1,0] -> first cell, first row -> 2 alive neighbours
+  [1,0,0]
 
-[1,1,0] -> first cell,  first row -> 3 alive neighbours
-[1,1,0]
+✔[1,1,0] -> first cell,  first row -> 3 alive neighbours
+  [1,1,0]
 
-[1,1,0] -> third cell, second row -> 2 alive neighbours
-[1,1,0]
+✔[1,1,0] -> third cell, second row -> 2 alive neighbours
+  [1,1,0]
 
 
 - Determine underpopulation -> when fewer than two live neighbours

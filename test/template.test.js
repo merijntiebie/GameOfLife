@@ -35,5 +35,11 @@ describe('We want to be able to determine the amount of alive neighbours for eac
         it('░░▓, ░▓▓ first cell has 2 alive neighbours ', () => {
             expect(determineTheAmountOfAliveNeighbours([[1, 1, 0], [1, 0, 0]], 0, 0)).toEqual(2)
         });
+        it('░░▓, ░░▓ first cell has 3 alive neighbours ', () => {
+            expect(determineTheAmountOfAliveNeighbours([[1, 1, 0], [1, 1, 0]], 0, 0)).toEqual(3)
+        });
+        it('░░▓, ░░▓ 3rd cell on the 2nd row has 2 alive neighbours ', () => {
+            expect(determineTheAmountOfAliveNeighbours([[1, 1, 0], [1, 1, 0]], 1, 2)).toEqual(2)
+        });
     });
 });
