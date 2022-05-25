@@ -82,6 +82,22 @@ Universes of 2 rows
 ✔[1,1,0] -> third cell, second row -> 2 alive neighbours
   [1,1,0]
 
+✔[1,1,0] -> second cell, first row -> 3 alive neighbours
+  [1,1,0]
+
+✔[1,1,0] -> first cell, second row -> 3 alive neighbours
+  [1,1,0]
+
+✔[1,1,1] -> second cell, second row -> 8 alive neighbours
+  [1,1,1]
+  [1,1,1]
+
+2 alive neighbours -> no underpopulation
+1 alive neighbours -> underpopulation
+
+
+
+
 
 - Determine underpopulation -> when fewer than two live neighbours
 - Determine reproduction -> when a dead cell has exactly 3 neighbours
