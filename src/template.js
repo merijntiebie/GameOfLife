@@ -87,4 +87,26 @@ function determineIfThereIsUnderpopulation(aliveNeighbours) {
     return aliveNeighbours < 2    
 }
 
-module.exports = {isTheCellAlive, determineTheAmountOfAliveNeighbours, determineIfThereIsUnderpopulation}
+function determineIfThereIsReproduction(aliveNeighbours) {
+    return aliveNeighbours == 3
+}
+
+function determineIfThereIsOvercrowding(aliveNeighbours) {
+    return aliveNeighbours > 3
+}
+
+function determineNextStatusOfCell(currentStatus, aliveNeighbours) {
+    if (aliveNeighbours == 2) {
+        return 1
+    }
+    return 0
+}
+
+module.exports = {
+    isTheCellAlive, 
+    determineTheAmountOfAliveNeighbours, 
+    determineIfThereIsUnderpopulation, 
+    determineIfThereIsReproduction, 
+    determineIfThereIsOvercrowding,
+    determineNextStatusOfCell
+}

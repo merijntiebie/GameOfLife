@@ -92,16 +92,30 @@ Universes of 2 rows
   [1,1,1]
   [1,1,1]
 
-2 alive neighbours -> no underpopulation
-1 alive neighbours -> underpopulation
-
-
-
-
-
 - Determine underpopulation -> when fewer than two live neighbours
 - Determine reproduction -> when a dead cell has exactly 3 neighbours
 - Determine overcrowding -> when a live cell has more than three live neighbours 
+
+✔ 2 alive neighbours -> no underpopulation
+✔ 1 alive neighbours -> underpopulation
+
+✔ 2 alive neighbours -> no reproduction
+✔ 3 alive neighbours -> reproduction
+✔ 4 alive neighbours -> no reproduction
+
+✔ 3 alive neighbours -> no overcrowding
+✔ 4 alive neighbours -> overcrowding
+
+Determine the new status of the cell
+- Cell alive, 1 alive neighbour -> dead
+- Cell alive, 2 alive neighbour -> alive
+- Cell alive, 3 alive neighbour -> alive
+- Cell alive, 4 alive neighbours -> dead
+
+- Cell dead, 1 alive neighbour -> dead
+- Cell dead, 2 alive neighbours -> dead
+- Cell dead, 3 alive neighbours -> alive
+- Cell dead, 4 alive neighbours -> dead
 
 Customer question:
 - Can we assume the input is valid
