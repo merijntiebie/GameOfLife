@@ -84,7 +84,7 @@ function doesTheUniverseContinueAboveThisRow(cellRow) {
 }
 
 function determineIfThereIsUnderpopulation(aliveNeighbours) {
-    return aliveNeighbours < 2    
+    return aliveNeighbours <= 1    
 }
 
 function determineIfThereIsReproduction(aliveNeighbours) {
@@ -95,11 +95,12 @@ function determineIfThereIsOvercrowding(aliveNeighbours) {
     return aliveNeighbours > 3
 }
 
-function determineNextStatusOfCell(currentStatus, aliveNeighbours) {
-    if (aliveNeighbours == 2) {
-        return 1
-    }
-    return 0
+function determineNextStatusOfCell(cellStatus, aliveNeighbours) {
+    if (aliveNeighbours == 2){
+        return cellStatus
+    } if (determineIfThereIsUnderpopulation(aliveNeighbours) || determineIfThereIsOvercrowding(aliveNeighbours)) {
+        return 0
+    } else return 1
 }
 
 module.exports = {

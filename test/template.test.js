@@ -89,11 +89,31 @@ describe('We want to be able to determine if a cell can persist based on the amo
         });
     });
     describe('When the cell is alive', () => {
-        it('and has 1 neighbour, it dies', () => {
-            expect(determineNextStatusOfCell(1, 1)).toEqual(0)
+        it('1 neighbour, it dies because of underpopulation', () => {
+            expect(determineNextStatusOfCell(1,1)).toEqual(0)
         });
-        it('and has 2 neighbours, it stays alive', () => {
-            expect(determineNextStatusOfCell(1, 2)).toEqual(1)
+        it('2 neighbours, it stays alive because a there is a stable environment', () => {
+            expect(determineNextStatusOfCell(1,2)).toEqual(1)
+        });
+        it('3 neighbours, it stays alive because of reproduction', () => {
+            expect(determineNextStatusOfCell(1,3)).toEqual(1)
+        });
+        it('4 neighbours, it dies because of overpopulation', () => {
+            expect(determineNextStatusOfCell(1,4)).toEqual(0)
+        });
+    });
+    describe('When the cell is dead', () => {
+        it('1 neighbour, it stays dead because of underpopulation', () => {
+            expect(determineNextStatusOfCell(0, 1)).toEqual(0)
+        });
+        it('2 neighbours, it stays dead because a there is a stable environment', () => {
+            expect(determineNextStatusOfCell(0, 2)).toEqual(0)
+        });
+        it('3 neighbours, it becomes alive because of reproduction', () => {
+            expect(determineNextStatusOfCell(0, 3)).toEqual(1)
+        });
+        it('4 neighbours, it stays dead because of overpopulation', () => {
+            expect(determineNextStatusOfCell(0, 4)).toEqual(0)
         });
     });
 });

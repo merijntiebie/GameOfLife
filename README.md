@@ -107,15 +107,12 @@ Universes of 2 rows
 ✔ 4 alive neighbours -> overcrowding
 
 Determine the new status of the cell
-- Cell alive, 1 alive neighbour -> dead
-- Cell alive, 2 alive neighbour -> alive
-- Cell alive, 3 alive neighbour -> alive
-- Cell alive, 4 alive neighbours -> dead
+- ✔ 1 alive neighbour -> dead
+- ✔ 3 alive neighbour -> alive
+- ✔ 4 alive neighbours -> dead
 
-- Cell dead, 1 alive neighbour -> dead
-- Cell dead, 2 alive neighbours -> dead
-- Cell dead, 3 alive neighbours -> alive
-- Cell dead, 4 alive neighbours -> dead
+- ✔ cell alive, 2 alive neighbours -> alive
+- ✔ cell dead, 2 alive neigbours -> dead
 
 Customer question:
 - Can we assume the input is valid
