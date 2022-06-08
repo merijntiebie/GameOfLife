@@ -154,11 +154,46 @@ describe('At every tick, the generation moves from its current state to the next
     ▓▓▓  |  ▓▓▓`, () => {
         expect(determineNextStateOfUniverse([[0,0,0],[0,0,0],[0,0,0]])).toEqual([[0,0,0],[0,0,0],[0,0,0]])        
     });
-    it(`When we have a universe with one alive cell in the centre at generation 0, the universe will be dead at generation 1
+    it(`one alive cell at generation 0, the universe will be dead at generation 1
     t=0  |  t=1
     ▓▓▓  |  ▓▓▓
     ▓░▓  |  ▓▓▓
     ▓▓▓  |  ▓▓▓`, () => {
         expect(determineNextStateOfUniverse([[0,0,0],[0,1,0],[0,0,0]])).toEqual([[0,0,0],[0,0,0],[0,0,0]])        
+    });
+    it(`2 alive cells at generation 0, the universe will be dead at generation 1
+    t=0  |  t=1
+    ░▓▓  |  ▓▓▓
+    ▓▓▓  |  ▓▓▓
+    ▓▓░  |  ▓▓▓`, () => {
+        expect(determineNextStateOfUniverse([[1, 0, 0], [0, 0, 0], [0, 0, 1]])).toEqual([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+    });
+    it(`2 alive cells next to eachother, universe will be dead at generation 1
+    t=0  |  t=1
+    ░░▓  |  ▓▓▓
+    ▓▓▓  |  ▓▓▓
+    ▓▓▓  |  ▓▓▓`, () => {
+        expect(determineNextStateOfUniverse([[1, 1, 0], [0, 0, 0], [0, 0, 0]])).toEqual([[0, 0, 0], [0, 0, 0], [0, 0, 0]])
+    });
+    it(`4 alive cells, universe will be stable at generation 1
+    t=0  |  t=1
+    ░░▓  |  ░░▓
+    ░░▓  |  ░░▓
+    ▓▓▓  |  ▓▓▓`, () => {
+        expect(determineNextStateOfUniverse([[1, 1, 0], [1, 1, 0], [0, 0, 0]])).toEqual([[1, 1, 0], [1, 1, 0], [0, 0, 0]])
+    });
+    it(`3 alive cells, + 1 cell due to reproduction
+    t=0  |  t=1
+    ░░▓  |  ░░▓
+    ░▓▓  |  ░░▓
+    ▓▓▓  |  ▓▓▓`, () => {
+        expect(determineNextStateOfUniverse([[1, 1, 0], [1, 0, 0], [0, 0, 0]])).toEqual([[1, 1, 0], [1, 1, 0], [0, 0, 0]])
+    });
+    it(`5 alive cells, due to reproduction and death at the same time --> 4 alive cells
+    t=0  |  t=1
+    ░░░  |  ░▓░
+    ░░▓  |  ░▓░
+    ▓▓▓  |  ▓▓▓`, () => {
+        expect(determineNextStateOfUniverse([[1, 1, 1], [1, 1, 0], [0, 0, 0]])).toEqual([[1, 0, 1], [1, 0, 1], [0, 0, 0]])
     });
 });

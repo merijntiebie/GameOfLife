@@ -107,7 +107,7 @@ function determineNextStateOfUniverse(universeCurrentGeneration) {
     var universeNextGeneration = universeCurrentGeneration 
     for (let rowInUniverse = 0; rowInUniverse < universeCurrentGeneration.length; rowInUniverse++) {
         for (let columnInRow = 0; columnInRow < universeCurrentGeneration[rowInUniverse].length; columnInRow++) {
-            var cellStatus = isTheCellAlive(columnInRow);
+            var cellStatus = universeCurrentGeneration[rowInUniverse][columnInRow];
             var aliveNeighbours = determineTheAmountOfAliveNeighbours(universeCurrentGeneration, rowInUniverse, columnInRow);
             var nextCellStatus = determineNextStatusOfCell(cellStatus, aliveNeighbours);
             universeNextGeneration[rowInUniverse][columnInRow] = nextCellStatus;
