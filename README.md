@@ -1,46 +1,44 @@
 # Kata GameOfLife
 Refinement
 
-Universe with only dead cells
-
-
+✔ Universe with only dead cells
 
 T = 0   T = 1    
 [0,0,0] [0,0,0]   
 [0,0,0] [0,0,0]   
 [0,0,0] [0,0,0] 
 
-Universe with 1 live cell --> dies because of under population
+✔ Universe with 1 live cell --> dies because of under population
 T = 0   T = 1    
-[1,0,0] [0,0,0]   
 [0,0,0] [0,0,0]   
+[0,1,0] [0,0,0]   
 [0,0,0] [0,0,0] 
 
-Universe with 2 living cells --> both die because of under population
+✔ Universe with 2 living cells --> both die because of under population
 T = 0   T = 1    
 [1,0,0] [0,0,0]   
 [0,0,0] [0,0,0]   
 [0,0,1] [0,0,0] 
 
-Universe with 2 adjacent living cells --> both die because of under population
+✔ Universe with 2 adjacent living cells --> both die because of under population
 T = 0   T = 1    
 [1,1,0] [0,0,0]   
 [0,0,0] [0,0,0]   
 [0,0,0] [0,0,0] 
 
-Universe with 4 adjacent living cells --> they all live in harmony
+✔ Universe with 4 adjacent living cells --> they all live in harmony
 T = 0   T = 1    
 [1,1,0] [1,1,0]   
 [1,1,0] [1,1,0]   
 [0,0,0] [0,0,0]
 
-Universe with 3 adjacent living cells --> they all live in harmony and reproduce one more living cell
+✔ Universe with 3 adjacent living cells --> they all live in harmony and reproduce one more living cell
 T = 0   T = 1    
 [1,1,0] [1,1,0]   
 [1,0,0] [1,1,0]   
 [0,0,0] [0,0,0]
 
-Universe with 5 living cells --> death and reproduction happen at the same time
+🛠 Universe with 5 living cells --> death and reproduction happen at the same time
 T = 0   T = 1    
 [1,1,1] [1,0,1]   
 [1,1,0] [1,0,1]   
@@ -116,3 +114,10 @@ Determine the new status of the cell
 
 Customer question:
 - Can we assume the input is valid
+
+The initial pattern constitutes the seed of the system. The first generation is created by applying the above rules simultaneously to every cell in the seed—births and deaths occur simultaneously, and the discrete moment at which this happens is sometimes called a tick (in other words, each generation is a pure function of the preceding one)
+
+function nextGen(cells) {
+  ....
+  return universe.next;
+}
